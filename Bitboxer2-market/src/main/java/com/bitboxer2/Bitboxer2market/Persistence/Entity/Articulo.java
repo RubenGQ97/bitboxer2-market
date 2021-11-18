@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 import java.math.BigDecimal;
+import java.util.Set;
 
 
 /**
@@ -22,7 +23,7 @@ public class Articulo {
     private boolean estado;
     private Date    fechaDeCreacion;
     private Usuario creador;
-    private Set<Proovedor> proveedor;
+    private Set<Proveedor> proveedor;
     private Set<Reduccion> reduccion;
 
 
@@ -71,7 +72,7 @@ public class Articulo {
         return precio;
     }
 
-    public BigDecimal setPrecio(float precio) {
+    public void setPrecio(BigDecimal precio) {
         this.precio = precio;
     }
 
@@ -117,11 +118,11 @@ public class Articulo {
      * @hibernate.key column="idArticulo"
      * @hibernate.many-to-many class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Proveedor" column="idProveedor"
      */
-    public Set<Proovedor> getProveedor(){
+    public Set<Proveedor> getProveedor(){
         return proveedor;
     }
 
-    public void setProveedor(Set<Proovedor> proveedor){
+    public void setProveedor(Set<Proveedor> proveedor){
         this.proveedor = proveedor;
     }
 

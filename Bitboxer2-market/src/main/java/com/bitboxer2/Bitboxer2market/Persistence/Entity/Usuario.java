@@ -1,5 +1,7 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
+import java.util.Set;
+
 /**
  * @hibernate.class
  *  table="USUARIO"

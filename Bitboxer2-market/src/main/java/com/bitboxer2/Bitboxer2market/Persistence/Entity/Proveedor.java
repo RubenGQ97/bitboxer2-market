@@ -1,6 +1,7 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
+import java.util.Set;
 
 /**
  * @hibernate.class
@@ -8,7 +9,7 @@ package com.bitboxer2.Bitboxer2market.Persistence.Entity;
  *  mutable="true"
  *  dynamic-update="true"
  */
-public class Proovedor{
+public class Proveedor{
 
     private Integer idProveedor;
     private String nombre;

@@ -54,7 +54,7 @@ public class Usuario{
 	}
 
 
-    /*
+    /**
      * @hibernate.set cascade="all.delete-orphan" lazy="true" inverse="false"
      * @hibernate.key column="idUsuario"
      * @hibernate.one-to-many class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Articulo"

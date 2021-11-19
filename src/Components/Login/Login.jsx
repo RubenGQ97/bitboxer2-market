@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import '../../Styles/login.css';
+import FormularioLogin from './formulariologin';
 import { ReactComponent as Bitboxlogo } from '../../svg/bitbox.svg';
+import '../../Styles/login.css';
+
 
 export default function Login(props){
 
@@ -13,13 +15,7 @@ export default function Login(props){
                 <div class="fadeIn first">
                 <Bitboxlogo></Bitboxlogo>
                 </div>
-
-                <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login"></input>
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"></input>
-                <input type="submit" class="fadeIn fourth" value="Log In"></input>
-                </form>
-
+                <FormularioLogin></FormularioLogin>
                 <div id="formFooter">
                 <a class="underlineHover" href="#">Forgot Password?</a>
                 </div>

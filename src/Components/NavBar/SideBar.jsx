@@ -9,7 +9,7 @@ export default function SideBar (props){
                 <div className="sidebar-sticky" >
                     <ul className="nav sideBarList">
                         <li className="nav-item  sideBarListItem" >
-                            <a class=" font-weight-bold "  href="">Opcion1</a>
+                            <a class=" font-weight-bold " href="">Opcion1</a>
                         </li>
                         <li className="nav-item  sideBarListItem" >
                             <a class=" font-weight-bold " href="">Opcion2</a>

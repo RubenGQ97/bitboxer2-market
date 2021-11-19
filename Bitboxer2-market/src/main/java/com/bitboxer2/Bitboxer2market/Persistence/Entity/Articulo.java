@@ -1,37 +1,40 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.math.BigDecimal;
 import java.util.Set;
 
-
-/**
- * @hibernate.class
- *  table="ARTICULO"
- *  mutable="true"
- *  dynamic-update="true"
- */
+@Entity
+@Table(name = "articulo")
 public class Articulo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idArticulo;
+    /*
+    propiedades basicas
+    */
     private Integer codigo;
     private String descripcion;
     private BigDecimal precio;
     private boolean estado;
-    private Date    fechaDeCreacion;
+    private LocalDateTime fechaDeCreacion;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", insertable = false, updatable = false)
     private Usuario creador;
+
+    @ManyToMany(mappedBy = "articulo")
     private Set<Proveedor> proveedor;
+
+    @OneToMany(mappedBy = "articulo")
     private Set<Reduccion> reduccion;
 
 
-    /**
-     * @hibernate.id unsaved-value="null" column="idArticulo"
-     * @hibernate.generator class="sequence"
-     * @hibernate.param name="sequence" value="articulo_id_seq"
-     */
+
     public Integer getIdArticulo() {
         return idArticulo;
     }
@@ -41,9 +44,7 @@ public class Articulo {
         this.idArticulo = idArticulo;
     }
 
-    /** 
-    * @hibernate.property column="codigo" type="int" not-null="true" unique="true"
-    */
+
     public Integer getCodigo() {
         return codigo;
     }
@@ -53,9 +54,7 @@ public class Articulo {
     }
 
 
-    /** 
-    * @hibernate.property column="descripcion" type="string" unique="false"
-    */
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -65,9 +64,7 @@ public class Articulo {
     }
 
 
-    /** 
-    * @hibernate.property column="precio" type="big_decimal" not-null="true" unique="false"
-    */
+
     public BigDecimal getPrecio() {
         return precio;
     }
@@ -78,9 +75,7 @@ public class Articulo {
 
 
     
-    /** 
-    * @hibernate.property column="estado" type="boolean" unique="false"
-    */
+
     public boolean isEstado() {
         return estado;
     }
@@ -90,20 +85,16 @@ public class Articulo {
     }
 
 
-    /** 
-    * @hibernate.property column="fechaDeCreacion" type="date" unique="false"
-    */
-    public Date getFechaDeCreacion() {
+
+    public LocalDateTime getFechaDeCreacion() {
         return fechaDeCreacion;
     }
 
-    public void setFechaDeCreacion(Date fechaDeCreacion) {
+    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 
-    /**
-     * @hibernate.many-to-one column="idUsuario" class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Usuario" not-null="true" lazy="true"
-     */
+
     public Usuario getCreador() {
         return creador;
     }
@@ -113,11 +104,7 @@ public class Articulo {
     }
 
 
-    /**
-     * @hibernate.set table="proveedor_articulo" cascade="none" lazy="true"
-     * @hibernate.key column="idArticulo"
-     * @hibernate.many-to-many class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Proveedor" column="idProveedor"
-     */
+
     public Set<Proveedor> getProveedor(){
         return proveedor;
     }
@@ -127,11 +114,7 @@ public class Articulo {
     }
 
 
-    /*
-     * @hibernate.set cascade="all.delete-orphan" lazy="true" inverse="false"
-     * @hibernate.key column="idArticulo"
-     * @hibernate.one-to-many class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Reduccion"
-     */
+
     public Set<Reduccion> getReducion(){
         return this.reduccion;
     }

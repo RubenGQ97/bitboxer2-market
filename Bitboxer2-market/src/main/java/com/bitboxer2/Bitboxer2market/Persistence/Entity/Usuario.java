@@ -1,27 +1,21 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
+import javax.persistence.*;
 import java.util.Set;
 
-/**
- * @hibernate.class
- *  table="USUARIO"
- *  mutable="true"
- *  dynamic-update="true"
- */
+@Entity
+@Table(name = "Usuario")
 public class Usuario{
-
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idUsuario;
     private String nombre;
     private String contrasenia;
+
+	@OneToMany(mappedBy = "creador")
     private Set<Articulo> articulosCreados;
 
 
-    /**
-     * @hibernate.id unsaved-value="null" column="idUsuario"
-     * @hibernate.generator class="sequence"
-     * @hibernate.param name="sequence" value="usuario_id_seq"
-     */
 	public Integer getIdUsuario() {
 		return this.idUsuario;
 	}
@@ -31,9 +25,7 @@ public class Usuario{
 	}
 
     
-    /** 
-    * @hibernate.property column="nombre" type="string" not-null="true" unique="false"
-    */
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -42,9 +34,7 @@ public class Usuario{
 		this.nombre = nombre;
 	}
 
-    /** 
-    * @hibernate.property column="contrasenia" type="string" not-null="true" unique="false"
-    */
+
 	public String getContrasenia() {
 		return this.contrasenia;
 	}
@@ -54,11 +44,7 @@ public class Usuario{
 	}
 
 
-    /**
-     * @hibernate.set cascade="all.delete-orphan" lazy="true" inverse="false"
-     * @hibernate.key column="idUsuario"
-     * @hibernate.one-to-many class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Articulo"
-     */
+
 	public Set<Articulo> getArticulosCreados() {
 		return this.articulosCreados;
 	}

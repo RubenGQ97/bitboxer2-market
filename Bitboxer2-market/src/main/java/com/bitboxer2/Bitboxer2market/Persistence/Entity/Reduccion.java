@@ -1,28 +1,25 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.math.BigDecimal;
 
 
 
-/**
- * @hibernate.class
- *  table="REDUCCION"
- *  mutable="true"
- *  dynamic-update="true"
- */
+@Entity
 public class Reduccion{
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer idReduccion;
     private BigDecimal precio;
     private Date fechaInicio;
     private Date fechaFin;
+
+	@ManyToOne
+	@JoinColumn(name = "idArticulo", insertable = false, updatable = false)
     private Articulo articulo;
 
-    /**
-     * @hibernate.id unsaved-value="null" column="idReduccion"
-     * @hibernate.generator class="sequence"
-     * @hibernate.param name="sequence" value="reduccion_id_seq"
-     */
+
 	public Integer getIdReduccion() {
 		return this.idReduccion;
 	}
@@ -32,9 +29,7 @@ public class Reduccion{
 	}
 
 
-    /** 
-    * @hibernate.property column="precio" type="big_decimal" not-null="true" unique="false"
-    */
+
 	public BigDecimal getPrecio() {
 		return this.precio;
 	}
@@ -44,9 +39,7 @@ public class Reduccion{
 	}
 
 
-    /**
-     * hibernate.property column="fechaInicio" type="date" not-null="true" unique="false"
-     */
+
 	public Date getFechaInicio() {
 		return this.fechaInicio;
 	}
@@ -55,9 +48,7 @@ public class Reduccion{
 		this.fechaInicio = fechaInicio;
 	}
 
-    /**
-     * hibernate.property column="fechaFin" type="date" not-null="true" unique="false"
-     */
+
 	public Date getFechaFin() {
 		return this.fechaFin;
 	}
@@ -67,9 +58,7 @@ public class Reduccion{
 	}
 
 
-    /**
-     * @hibernate.many-to-one column="idReduccion" class="com.bitboxer2.Bitboxer2market.Persistence.Entity.Articulo" not-null="true" lazy="true"
-     */
+
 	public Articulo getArticulo() {
 		return this.articulo;
 	}

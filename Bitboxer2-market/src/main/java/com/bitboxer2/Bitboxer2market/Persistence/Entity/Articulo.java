@@ -115,7 +115,7 @@ public class Articulo {
 
 
 
-    public Set<Reduccion> getReducion(){
+    public Set<Reduccion> getReduccion(){
         return this.reduccion;
     }
 

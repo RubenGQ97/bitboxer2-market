@@ -7,16 +7,21 @@ import java.math.BigDecimal;
 
 
 @Entity
+@Table(name = "reduccion")
 public class Reduccion{
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idreduccion")
     private Integer idReduccion;
+	@Column(name = "precio")
     private BigDecimal precio;
+	@Column(name = "fechainicio")
     private Date fechaInicio;
+	@Column(name = "fechafin")
     private Date fechaFin;
 
 	@ManyToOne
-	@JoinColumn(name = "idArticulo", insertable = false, updatable = false)
+	@JoinColumn(name = "idarticulo", insertable = false, updatable = false)
     private Articulo articulo;
 
 

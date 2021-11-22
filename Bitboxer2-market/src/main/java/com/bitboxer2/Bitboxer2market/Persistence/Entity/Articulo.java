@@ -12,19 +12,25 @@ import java.util.Set;
 public class Articulo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idarticulo")
     private Integer idArticulo;
     /*
     propiedades basicas
     */
+    @Column(name = "codigo")
     private Integer codigo;
+    @Column(name = "descripcion")
     private String descripcion;
+    @Column(name = "precio")
     private BigDecimal precio;
+    @Column(name = "estado")
     private boolean estado;
+    @Column(name = "fechaDeCreacion")
     private LocalDateTime fechaDeCreacion;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario", insertable = false, updatable = false)
+    @JoinColumn(name = "idusuario", insertable = false, updatable = false)
     private Usuario creador;
 
     @ManyToMany(mappedBy = "articulo")

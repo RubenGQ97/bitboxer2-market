@@ -4,12 +4,15 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario{
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idUsuario")
     private Integer idUsuario;
+	@Column(name = "nombre")
     private String nombre;
+	@Column(name = "contrasenia")
     private String contrasenia;
 
 	@OneToMany(mappedBy = "creador")

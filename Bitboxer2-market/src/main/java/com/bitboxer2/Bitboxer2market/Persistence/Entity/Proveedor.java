@@ -5,13 +5,18 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "proveedor")
 public class Proveedor{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idProveedor")
     private Integer idProveedor;
+
+	@Column(name = "nombre")
     private String nombre;
-    private String pais;
+    @Column(name = "pais")
+	private String pais;
 
 	@ManyToMany
 	@JoinTable(

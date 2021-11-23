@@ -1,5 +1,8 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -8,7 +11,7 @@ import java.util.Set;
 public class Usuario{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idUsuario")
+	@Column(name = "idusuario")
     private Integer idUsuario;
 	@Column(name = "nombre")
     private String nombre;
@@ -16,6 +19,7 @@ public class Usuario{
     private String contrasenia;
 
 	@OneToMany(mappedBy = "creador")
+	@JsonBackReference
     private Set<Articulo> articulosCreados;
 
 

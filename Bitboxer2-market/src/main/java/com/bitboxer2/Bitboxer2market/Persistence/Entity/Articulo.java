@@ -1,6 +1,10 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -26,17 +30,20 @@ public class Articulo {
     private BigDecimal precio;
     @Column(name = "estado")
     private boolean estado;
-    @Column(name = "fechaDeCreacion")
-    private LocalDateTime fechaDeCreacion;
+    @Column(name = "fechadecreacion")
+    private Date fechaDeCreacion;
 
     @ManyToOne
     @JoinColumn(name = "idusuario", insertable = false, updatable = false)
+    @JsonManagedReference(value="JSR_USUARIO")
     private Usuario creador;
 
     @ManyToMany(mappedBy = "articulo")
+    @JsonManagedReference(value="JSR_PROVEEDOR")
     private Set<Proveedor> proveedor;
 
     @OneToMany(mappedBy = "articulo")
+    @JsonManagedReference(value="JSR_REDUCCION")
     private Set<Reduccion> reduccion;
 
 
@@ -92,11 +99,11 @@ public class Articulo {
 
 
 
-    public LocalDateTime getFechaDeCreacion() {
+    public Date getFechaDeCreacion() {
         return fechaDeCreacion;
     }
 
-    public void setFechaDeCreacion(LocalDateTime fechaDeCreacion) {
+    public void setFechaDeCreacion(Date fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 

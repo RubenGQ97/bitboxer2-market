@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ItemRepository {
-    List<ArticuloDTO> getAll();
-    public  List<ArticuloDTO> getArticulosByCodigo(int codigo);
-    public Optional<ArticuloDTO> getArticuloById(int idArticulo);
+    public List<ArticuloDTO> getAll();
+    public List<ArticuloDTO> getTable();
+    public ArticuloDTO getArticulosByCodigo(int codigo);
+    public ArticuloDTO getArticuloById(int idArticulo);
     public void saveArticulo(ArticuloDTO articuloDTO);
 }

@@ -1,6 +1,8 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,7 +12,7 @@ public class Proveedor{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idProveedor")
+	@Column(name = "idproveedor")
     private Integer idProveedor;
 
 	@Column(name = "nombre")
@@ -21,8 +23,9 @@ public class Proveedor{
 	@ManyToMany
 	@JoinTable(
 			name = "proveedor_articulo",
-			joinColumns = @JoinColumn(name = "idProveedor"),
-			inverseJoinColumns = @JoinColumn(name = "idArticulo"))
+			joinColumns = @JoinColumn(name = "idproveedor"),
+			inverseJoinColumns = @JoinColumn(name = "idarticulo"))
+	@JsonBackReference
     private Set<Articulo> articulo;
 
 

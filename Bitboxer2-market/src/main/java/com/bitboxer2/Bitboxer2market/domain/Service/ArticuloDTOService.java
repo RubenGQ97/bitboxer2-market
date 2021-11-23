@@ -18,16 +18,24 @@ public class ArticuloDTOService {
         return itemRepository.getAll();
     }
 
-    public Optional<ArticuloDTO> getArticulo(int articuloId){
-        return itemRepository.getArticuloById(articuloId);
+    public ArticuloDTO getArticuloByCode(int code){
+        return itemRepository.getArticulosByCodigo(code);
     }
 
     public void saveArticulo(ArticuloDTO articuloDTO){
         itemRepository.saveArticulo(articuloDTO);
     }
 
-    public List<ArticuloDTO> getArticuloById(int codigo){
-        return itemRepository.getArticulosByCodigo(codigo);
+    public ArticuloDTO getArticuloById(int codigo){
+        return itemRepository.getArticuloById(codigo);
+    }
+
+    public void save(ArticuloDTO articuloDTO){
+        itemRepository.saveArticulo(articuloDTO);
+    }
+
+    public List<ArticuloDTO> getTable(){
+        return itemRepository.getTable();
     }
 
 }

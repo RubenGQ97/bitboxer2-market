@@ -1,44 +1,46 @@
 package com.bitboxer2.Bitboxer2market.domain.DTO;
 
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.Set;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UsuarioDTO {
 
     private Integer userId;
     private String name;
     private String passwd;
 
-    private Set<ArticuloDTO> createdItem;
+    //private Set<ArticuloDTO> createdItem;
 
-    public Integer getUserId() {
+    public Integer getIdUsuario() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setIdUsuario(Integer userId) {
         this.userId = userId;
     }
 
-    public String getName() {
+    public String getNombre() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setNombre(String name) {
         this.name = name;
     }
 
-    public String getPasswd() {
+    public String getContrasenia() {
         return passwd;
     }
 
-    public void setPasswd(String passwd) {
+    public void setContrasenia(String passwd) {
         this.passwd = passwd;
     }
 
-    public Set<ArticuloDTO> getCreatedItem() {
+    /*public Set<ArticuloDTO> getArticulosCreados() {
         return createdItem;
     }
 
-    public void setCreatedItem(Set<ArticuloDTO> createdItem) {
+    public void setArticulosCreados(Set<ArticuloDTO> createdItem) {
         this.createdItem = createdItem;
-    }
+    }*/
 }

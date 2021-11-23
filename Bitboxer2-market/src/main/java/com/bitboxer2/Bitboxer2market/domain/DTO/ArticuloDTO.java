@@ -2,11 +2,14 @@ package com.bitboxer2.Bitboxer2market.domain.DTO;
 
 import com.bitboxer2.Bitboxer2market.Persistence.Entity.Proveedor;
 import com.bitboxer2.Bitboxer2market.Persistence.Entity.Reduccion;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Set;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticuloDTO {
 
     private Integer itemId;
@@ -14,81 +17,81 @@ public class ArticuloDTO {
     private String description;
     private BigDecimal price;
     private boolean active;
-    private LocalDateTime dateOfCreation;
+    private Date dateOfCreation;
     private UsuarioDTO creator;
     private Set<ProveedorDTO> suplier;
     private Set<ReduccionDTO> reduction;
 
 
-    public Integer getitemId() {
+    public Integer getidArticulo() {
         return itemId;
     }
 
-    public void setitemId(Integer articuloId) {
+    public void setidArticulo(Integer articuloId) {
         this.itemId = articuloId;
     }
 
-    public Integer getCode() {
+    public Integer getCodigo() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCodigo(Integer code) {
         this.code = code;
     }
 
-    public String getDescription() {
+    public String getDescripcion() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescripcion(String description) {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public BigDecimal getPrecio() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrecio(BigDecimal price) {
         this.price = price;
     }
 
-    public boolean isActive() {
+    public boolean isEstado() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    public void setEstado(boolean active) {
         this.active = active;
     }
 
-    public LocalDateTime getDateOfCreation() {
+    public Date getFechaDeCreacion() {
         return dateOfCreation;
     }
 
-    public void setDateOfCreation(LocalDateTime dateOfCreation) {
+    public void setFechaDeCreacion(Date dateOfCreation) {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public UsuarioDTO getCreator() {
+    public UsuarioDTO getCreador() {
         return creator;
     }
 
-    public void setCreator(UsuarioDTO creator) {
+    public void setCreador(UsuarioDTO creator) {
         this.creator = creator;
     }
 
-    public Set<ProveedorDTO> getSuplier() {
+    public Set<ProveedorDTO> getProveedor() {
         return suplier;
     }
 
-    public void setSuplier(Set<ProveedorDTO> suplier) {
+    public void setProveedor(Set<ProveedorDTO> suplier) {
         this.suplier = suplier;
     }
 
-    public Set<ReduccionDTO> getReduction() {
+    public Set<ReduccionDTO> getReduccion() {
         return reduction;
     }
 
-    public void setReduction(Set<ReduccionDTO> reduccion) {
+    public void setReduccion(Set<ReduccionDTO> reduccion) {
         this.reduction = reduccion;
     }
 

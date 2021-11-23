@@ -50,3 +50,15 @@ CREATE TABLE proveedor_articulo(
 	FOREIGN KEY(idProveedor) REFERENCES proveedor(idProveedor)
 );
 
+
+INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (1,'Javi', 'aa');
+INSERT INTO proveedor VALUES (1,'Javi', 'España');
+INSERT INTO articulo VALUES (1,636,'pruebaArticulo',50,true,'2021-12-12',1);
+INSERT INTO reduccion VALUES (1,6,'2021-12-14','2021-12-15',1);
+INSERT INTO PROVEEDOR_ARTICULO VALUES (1,1);
+
+INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (2,'Javi2', 'aa');
+INSERT INTO proveedor VALUES (2,'Javi2', 'España');
+INSERT INTO articulo VALUES (2,637,'pruebaArticulo2',60,true,'2021-12-12',1);
+INSERT INTO reduccion VALUES (2,10,'2021-12-14','2021-12-15',2);
+INSERT INTO PROVEEDOR_ARTICULO VALUES (2,2)

@@ -1,8 +1,11 @@
 package com.bitboxer2.Bitboxer2market.domain.DTO;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReduccionDTO {
 
     private Integer reductionId;
@@ -10,45 +13,45 @@ public class ReduccionDTO {
     private Date startDate;
     private Date endDate;
 
-    private ArticuloDTO item;
+   // private ArticuloDTO item;
 
-    public Integer getReductionId() {
+    public Integer getIdReduccion() {
         return reductionId;
     }
 
-    public void setReductionId(Integer reductionId) {
+    public void setIdReduccion(Integer reductionId) {
         this.reductionId = reductionId;
     }
 
-    public BigDecimal getPrice() {
+    public BigDecimal getPrecio() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrecio(BigDecimal price) {
         this.price = price;
     }
 
-    public Date getStartDate() {
+    public Date getFechaInicio() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setFechaInicio(Date startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Date getFechaFin() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setFechaFin(Date endDate) {
         this.endDate = endDate;
     }
 
-    public ArticuloDTO getItem() {
+    /*public ArticuloDTO getArticulo() {
         return item;
     }
 
-    public void setItem(ArticuloDTO item) {
+    public void setArticulo(ArticuloDTO item) {
         this.item = item;
-    }
+    }*/
 }

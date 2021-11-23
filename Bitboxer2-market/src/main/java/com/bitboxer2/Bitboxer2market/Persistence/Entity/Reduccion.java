@@ -1,5 +1,7 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.math.BigDecimal;
@@ -22,6 +24,7 @@ public class Reduccion{
 
 	@ManyToOne
 	@JoinColumn(name = "idarticulo", insertable = false, updatable = false)
+	@JsonBackReference
     private Articulo articulo;
 
 

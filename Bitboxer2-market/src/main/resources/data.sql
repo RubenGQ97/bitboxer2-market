@@ -53,12 +53,31 @@ CREATE TABLE proveedor_articulo(
 
 INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (1,'Javi', 'aa');
 INSERT INTO proveedor VALUES (1,'Javi', 'España');
-INSERT INTO articulo VALUES (1,636,'pruebaArticulo',50,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (1,636,'Sofa behsje',100,true,'2021-12-12',1);
 INSERT INTO reduccion VALUES (1,6,'2021-12-14','2021-12-15',1);
 INSERT INTO PROVEEDOR_ARTICULO VALUES (1,1);
 
-INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (2,'Javi2', 'aa');
-INSERT INTO proveedor VALUES (2,'Javi2', 'España');
-INSERT INTO articulo VALUES (2,637,'pruebaArticulo2',60,true,'2021-12-12',1);
+INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (2,'Alejandro', 'aa');
+INSERT INTO proveedor VALUES (2,'Alejandro', 'España');
+INSERT INTO articulo VALUES (2,637,'Silla cuerns',30,true,'2021-12-12',1);
 INSERT INTO reduccion VALUES (2,10,'2021-12-14','2021-12-15',2);
-INSERT INTO PROVEEDOR_ARTICULO VALUES (2,2)
+INSERT INTO PROVEEDOR_ARTICULO VALUES (2,2);
+
+INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (3,'Ruben', 'aa');
+INSERT INTO proveedor VALUES (3,'Ruben', 'España');
+INSERT INTO articulo VALUES (3,638,'Botella Ronaldo',60,true,'2021-12-12',1);
+INSERT INTO PROVEEDOR_ARTICULO VALUES (1,3);
+
+INSERT INTO usuario (idusuario,nombre,contrasenia) VALUES (4,'Raul', 'aa');
+INSERT INTO proveedor VALUES (4,'Raul', 'España');
+INSERT INTO articulo VALUES (4,639,'alfombreDoBanio',10,true,'2021-12-12',1);
+INSERT INTO PROVEEDOR_ARTICULO VALUES (1,4);
+
+
+INSERT INTO articulo VALUES (5,640,'EspejoEspejito',35,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (6,641,'Banco de Spain',20,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (7,642,'Bombilla Gaming',8,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (8,643,'Escritorio escrito',120,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (9,644,'Melocar goalhombro',66,true,'2021-12-12',1);
+INSERT INTO articulo VALUES (10,645,'Ikeago mininio',636,true,'2021-12-12',1);
+INSERT INTO PROVEEDOR_ARTICULO VALUES (1,2);

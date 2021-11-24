@@ -34,8 +34,5 @@ public class ArticuloDTOService {
         itemRepository.saveArticulo(articuloDTO);
     }
 
-    public List<ArticuloDTO> getTable(){
-        return itemRepository.getTable();
-    }
 
 }

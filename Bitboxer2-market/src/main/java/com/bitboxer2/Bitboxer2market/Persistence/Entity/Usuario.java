@@ -1,6 +1,7 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
+@DynamicUpdate
 public class Usuario{
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)

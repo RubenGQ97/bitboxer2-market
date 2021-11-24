@@ -41,11 +41,6 @@ public class ArticuloController {
         articuloDTOService.save(articuloDTO);
     }
 
-    @GetMapping("table")
-    @CrossOrigin(origins = "http://localhost:3000")
-    public List<ArticuloDTO> getTable(){
-        return articuloDTOService.getTable();
-    }
 
 
 }

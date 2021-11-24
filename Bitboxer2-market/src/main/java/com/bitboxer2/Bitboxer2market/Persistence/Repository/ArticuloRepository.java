@@ -35,11 +35,7 @@ public class ArticuloRepository implements ItemRepository {
         return articuloDTOS;
     }
 
-    @Override
-    public List<ArticuloDTO> getTable() {
-        //List<String> result = articuloCrudRepository.getAllCodigo();
-        return null;
-    }
+
 
     @Override
     public  ArticuloDTO getArticulosByCodigo(int codigo){

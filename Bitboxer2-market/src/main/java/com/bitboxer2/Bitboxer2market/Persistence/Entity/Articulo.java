@@ -2,6 +2,7 @@ package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
 import com.fasterxml.jackson.annotation.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "articulo")
+@DynamicUpdate
 public class Articulo implements Serializable {
 
     @Id
@@ -21,7 +23,7 @@ public class Articulo implements Serializable {
     /*
     propiedades basicas
     */
-    @Column(name = "codigo", unique = true)
+    @Column(name = "codigo", unique = true, nullable = false, updatable = false)
     private Integer codigo;
     @Column(name = "descripcion")
     private String descripcion;
@@ -33,7 +35,7 @@ public class Articulo implements Serializable {
     private Date fechaDeCreacion;
 
     @ManyToOne
-    @JoinColumn(name = "idusuario", insertable = false, updatable = false)
+    @JoinColumn(name = "idusuario", insertable = true, updatable = false)
     @JsonManagedReference(value="JSR_USUARIO")
     private Usuario creador;
 

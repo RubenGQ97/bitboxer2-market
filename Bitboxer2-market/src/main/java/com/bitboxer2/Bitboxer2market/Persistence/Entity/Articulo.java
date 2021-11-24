@@ -1,11 +1,10 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.math.BigDecimal;
@@ -13,16 +12,16 @@ import java.util.Set;
 
 @Entity
 @Table(name = "articulo")
-public class Articulo {
+public class Articulo implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "idarticulo")
     private Integer idArticulo;
     /*
     propiedades basicas
     */
-    @Column(name = "codigo")
+    @Column(name = "codigo", unique = true)
     private Integer codigo;
     @Column(name = "descripcion")
     private String descripcion;

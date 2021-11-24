@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Bitboxer2MarketApplication {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		SpringApplication.run(Bitboxer2MarketApplication.class, args);
-	}
+        SpringApplication.run(Bitboxer2MarketApplication.class, args);
+    }
 
 }

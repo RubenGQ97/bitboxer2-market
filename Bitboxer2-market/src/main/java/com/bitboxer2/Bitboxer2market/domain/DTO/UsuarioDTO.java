@@ -8,7 +8,7 @@ public class UsuarioDTO {
 
     private Integer userId;
     private String name;
-    private String passwd;
+    //private String passwd;
 
     //private Set<ArticuloDTO> createdItem;
 
@@ -28,7 +28,7 @@ public class UsuarioDTO {
         this.name = name;
     }
 
-    public String getContrasenia() {
+    /*public String getContrasenia() {
         return passwd;
     }
 

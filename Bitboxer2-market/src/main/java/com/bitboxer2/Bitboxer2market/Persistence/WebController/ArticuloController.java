@@ -2,6 +2,7 @@ package com.bitboxer2.Bitboxer2market.Persistence.WebController;
 
 
 import com.bitboxer2.Bitboxer2market.domain.DTO.ArticuloDTO;
+import com.bitboxer2.Bitboxer2market.domain.DTO.UsuarioDTO;
 import com.bitboxer2.Bitboxer2market.domain.Service.ArticuloDTOService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,7 @@ public class ArticuloController {
 
     @PostMapping("save")
     public void save(@RequestBody ArticuloDTO articuloDTO){
+        ArticuloDTO prueba = articuloDTO;
         articuloDTOService.save(articuloDTO);
     }
 

@@ -1,8 +1,12 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -10,7 +14,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "reduccion")
-public class Reduccion{
+public class Reduccion implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idreduccion")

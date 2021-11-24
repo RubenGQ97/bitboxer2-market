@@ -1,7 +1,8 @@
 package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
 @Table(name = "usuario")
 public class Usuario{
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "idusuario")
     private Integer idUsuario;
 	@Column(name = "nombre")
@@ -60,4 +61,13 @@ public class Usuario{
 		this.articulosCreados = articulosCreados;
 	}
 
+	@SpringBootApplication
+	public static class Bitboxer2MarketApplication {
+
+		public static void main(String[] args) {
+
+			SpringApplication.run(Bitboxer2MarketApplication.class, args);
+		}
+
+	}
 }

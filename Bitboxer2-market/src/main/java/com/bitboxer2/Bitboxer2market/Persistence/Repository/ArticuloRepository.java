@@ -21,15 +21,19 @@ public class ArticuloRepository implements ItemRepository {
     @Autowired
     private ArticuloCrudRepository articuloCrudRepository;
 
-    /*@Autowired
-    private ArticuloMapper articuloMapper;*/
+    @Override
+    public List<ArticuloDTO> getArticuloByState(boolean state) {
+        List<ArticuloDTO> result = new ArrayList<ArticuloDTO>();
+        for (Articulo a: articuloCrudRepository.findByEstado(state)) {
+            result.add(toArticuloDTO(a));
+        }
+        return result;
+    }
 
     @Override
     public List<ArticuloDTO> getAll(){
-
-        List<Articulo> articulos = (List<Articulo>) articuloCrudRepository.findAll();
         List<ArticuloDTO> articuloDTOS= new ArrayList<ArticuloDTO>();
-        for (Articulo lista :articulos) {
+        for (Articulo lista :articuloCrudRepository.findAll()) {
             articuloDTOS.add(toArticuloDTO(lista));
         }
         return articuloDTOS;
@@ -38,9 +42,12 @@ public class ArticuloRepository implements ItemRepository {
 
 
     @Override
-    public  ArticuloDTO getArticulosByCodigo(int codigo){
-        Articulo result = articuloCrudRepository.findByCodigo(codigo);
-        return toArticuloDTO(result);
+    public  List<ArticuloDTO> getArticulosByCodigo(int codigo){
+        List<ArticuloDTO> result= new ArrayList<ArticuloDTO>();
+        for (Articulo a: articuloCrudRepository.findByCodigoStringStartsWith(codigo+"")) {
+            result.add(toArticuloDTO(a));
+        }
+        return result;
     }
 
     @Override

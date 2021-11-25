@@ -18,10 +18,12 @@ public class ArticuloDTOService {
         return itemRepository.getAll();
     }
 
-    public ArticuloDTO getArticuloByCode(int code){
+    public List<ArticuloDTO> getArticuloByCode(int code){
         return itemRepository.getArticulosByCodigo(code);
     }
-
+    public List<ArticuloDTO> getArticuloByEstado(boolean estado){
+        return itemRepository.getArticuloByState(estado);
+    }
     public void saveArticulo(ArticuloDTO articuloDTO){
         itemRepository.saveArticulo(articuloDTO);
     }

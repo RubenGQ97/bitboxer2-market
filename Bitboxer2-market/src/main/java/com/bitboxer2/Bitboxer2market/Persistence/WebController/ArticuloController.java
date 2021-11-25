@@ -31,8 +31,15 @@ public class ArticuloController {
 
     @GetMapping("code/{code}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public ArticuloDTO getArticuloByCode(@PathVariable("code") int code){
-        return (ArticuloDTO) articuloDTOService.getArticuloByCode(code);
+    public List<ArticuloDTO> getArticuloByCode(@PathVariable("code") int code){
+        return articuloDTOService.getArticuloByCode(code);
+    }
+
+
+    @GetMapping("estado/{estado}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public List<ArticuloDTO> getArticuloByEstado(@PathVariable("estado") boolean estado){
+        return articuloDTOService.getArticuloByEstado(estado);
     }
 
     @PostMapping("save")

@@ -8,6 +8,9 @@ import java.util.List;
 
 public interface ArticuloCrudRepository extends CrudRepository<Articulo,Integer> {
 
-    Articulo findByCodigo(int codigo);
+    @Query("from Articulo where CAST(codigo as text) like CONCAT(:codigo, '%')")
+    List<Articulo> findByCodigoStringStartsWith(String codigo);
+
+    List<Articulo> findByEstado(boolean estado);
     Articulo findById(int idArticulo);
 }

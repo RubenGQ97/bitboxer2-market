@@ -16,7 +16,7 @@ public class Usuario{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "idusuario")
     private Integer idUsuario;
-	@Column(name = "nombre")
+	@Column(name = "nombre", unique = true)
     private String nombre;
 	@Column(name = "contrasenia")
     private String contrasenia;

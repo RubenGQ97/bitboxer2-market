@@ -23,12 +23,14 @@ public class ArticuloController {
     }
 
     @GetMapping("/{itemid}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ArticuloDTO getArticuloById(@PathVariable("itemid") int itemid){
         return (ArticuloDTO) articuloDTOService.getArticuloById(itemid);
     }
 
 
     @GetMapping("code/{code}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public List<ArticuloDTO> getArticuloByCode(@PathVariable("code") int code){
         return articuloDTOService.getArticuloByCode(code);
     }
@@ -41,6 +43,7 @@ public class ArticuloController {
     }
 
     @PostMapping("save")
+    @CrossOrigin(origins = "http://localhost:3000")
     public void save(@RequestBody ArticuloDTO articuloDTO){
         ArticuloDTO prueba = articuloDTO;
         articuloDTOService.save(articuloDTO);

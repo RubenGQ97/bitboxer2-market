@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ArticuloDTO {
@@ -17,8 +18,8 @@ public class ArticuloDTO {
     private boolean active;
     private Date dateOfCreation;
     private UsuarioDTO creator;
-   /* private Set<ProveedorDTO> suplier;
-    private Set<ReduccionDTO> reduction;*/
+    private Set<ProveedorDTO> suplier;
+    private Set<ReduccionDTO> reduction;
 
 
     public Integer getidArticulo() {
@@ -77,7 +78,7 @@ public class ArticuloDTO {
         this.creator = creator;
     }
 
-    /*public Set<ProveedorDTO> getProveedor() {
+    public Set<ProveedorDTO> getProveedor() {
         return suplier;
     }
 
@@ -91,7 +92,7 @@ public class ArticuloDTO {
 
     public void setReduccion(Set<ReduccionDTO> reduccion) {
         this.reduction = reduccion;
-    }*/
+    }
 
 
 

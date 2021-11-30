@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "articulo")
-@DynamicUpdate
 public class Articulo implements Serializable {
 
     @Id
@@ -23,7 +22,7 @@ public class Articulo implements Serializable {
     /*
     propiedades basicas
     */
-    @Column(name = "codigo", unique = true, nullable = false, updatable = false)
+    @Column(name = "codigo", unique = true, nullable = true, updatable = false)
     private Integer codigo;
     @Column(name = "descripcion")
     private String descripcion;
@@ -39,7 +38,11 @@ public class Articulo implements Serializable {
     @JsonManagedReference(value="JSR_USUARIO")
     private Usuario creador;
 
-    @ManyToMany(mappedBy = "articulo")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "proveedor_articulo",
+            joinColumns = @JoinColumn(name = "idarticulo", insertable = true,nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "idproveedor",insertable = true,nullable = false))
     @JsonManagedReference(value="JSR_PROVEEDOR")
     private Set<Proveedor> proveedor;
 

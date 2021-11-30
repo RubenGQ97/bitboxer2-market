@@ -41,10 +41,13 @@ public class SecurityConfig{
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.cors().and().csrf().disable().authorizeRequests().antMatchers("/**/authentication").permitAll()
+                    .and().authorizeRequests().antMatchers("/**/h2-console/**").permitAll()
                     .anyRequest().authenticated().and().sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
             http.addFilterBefore(filtros, UsernamePasswordAuthenticationFilter.class);
+            http.csrf().disable();
+            http.headers().frameOptions().disable();
         }
 
 

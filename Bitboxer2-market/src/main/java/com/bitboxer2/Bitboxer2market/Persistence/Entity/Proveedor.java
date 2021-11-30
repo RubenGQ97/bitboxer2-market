@@ -4,27 +4,24 @@ package com.bitboxer2.Bitboxer2market.Persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name = "proveedor")
-public class Proveedor{
+public class Proveedor implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idproveedor")
     private Integer idProveedor;
 
-	@Column(name = "nombre")
+	@Column(name = "nombre", unique = true)
     private String nombre;
     @Column(name = "pais")
 	private String pais;
 
-	@ManyToMany
-	@JoinTable(
-			name = "proveedor_articulo",
-			joinColumns = @JoinColumn(name = "idproveedor"),
-			inverseJoinColumns = @JoinColumn(name = "idarticulo"))
+	@ManyToMany(mappedBy = "proveedor")
 	@JsonBackReference
     private Set<Articulo> articulo;
 

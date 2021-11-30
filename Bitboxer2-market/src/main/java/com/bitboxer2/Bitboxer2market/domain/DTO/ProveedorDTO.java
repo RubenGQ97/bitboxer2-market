@@ -13,7 +13,7 @@ public class ProveedorDTO  {
     //private Set<ArticuloDTO> item;
 
 
-    public Integer geIdProveedor() {
+    public Integer getIdProveedor() {
         return suplierid;
     }
 

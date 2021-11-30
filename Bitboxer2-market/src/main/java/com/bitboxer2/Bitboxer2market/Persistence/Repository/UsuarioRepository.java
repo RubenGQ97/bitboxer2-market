@@ -17,4 +17,12 @@ public class UsuarioRepository implements UserRepository{
         Usuario usuario=usuarioCrudRepository.findByNombre(nombre);
         return usuario.getContrasenia();
     }
+
+    @Override
+    public Integer getIdByUserName(String nombre) {
+        Usuario usuario=usuarioCrudRepository.findByNombre(nombre);
+        return usuario.getIdUsuario();
+    }
+
+
 }
